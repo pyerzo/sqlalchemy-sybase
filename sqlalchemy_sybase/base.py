@@ -478,7 +478,8 @@ class SybaseExecutionContext(default.DefaultExecutionContext):
             )
             if self._select_lastrowid:
                 # https://github.com/FreeTDS/freetds/issues/337#issuecomment-640070962
-                self.statement += "\n ;SELECT @@identity"
+                # self.statement += "\n ;SELECT @@identity"
+                self.statement += ";SELECT @@identity"
 
             if self._enable_identity_insert:
                 self.cursor.execute(
